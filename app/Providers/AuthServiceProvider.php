@@ -39,10 +39,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        // $gate->before(function ($user, $ability) {
-        //     dump('before');
-        //     return true;
-        // });
+        $gate->before(function ($user, $ability) {
+            dump('before');
+            return true;
+        });
 
         // $gate->define('update-post', function ($user, $post) {
         //     dump($user->id, $post);
