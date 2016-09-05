@@ -52,7 +52,7 @@ class TestController extends Controller
         if (Gate::denies('update', $post)) {
             dd(403);
         }
-
+1
         // $this->authorize('update', $post);
 
         dump('success');
