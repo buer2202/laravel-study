@@ -8,6 +8,13 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Auth;
 use Illuminate\Http\Request;
 
+use App\Post;
+use App\Comment;
+use App\Policies\PostPolicy;
+use App\Policies\CommentPolicy;
+
+
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
         Post::class => PostPolicy::class,
+        Comment::class => CommentPolicy::class,
+
     ];
 
     /**
@@ -28,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(GateContract $gate, Request $request)
     {
-        // $this->registerPolicies($gate);
+        $this->registerPolicies($gate);
 
         // $gate->before(function ($user, $ability) {
         //     dump('before');

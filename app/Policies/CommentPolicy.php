@@ -5,9 +5,9 @@ namespace App\Policies;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 use App\User;
-use App\Post;
+use App\Comment;
 
-class PostPolicy
+class CommentPolicy
 {
     use HandlesAuthorization;
 
@@ -18,12 +18,12 @@ class PostPolicy
      */
     public function __construct()
     {
+        //
     }
 
-    public function update(User $user, Post $post)
+    public function update(User $user, Comment $comment)
     {
-        // dump('post policy update');
-        return $user->id === $post->user_id;
+        dump('comment policy update');
+        return $user->id === $comment->user_id;
     }
-
 }

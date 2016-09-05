@@ -16,6 +16,7 @@ use Hash;
 
 use App\User;
 use App\Comment;
+use App\Post;
 
 use Route;
 
@@ -48,11 +49,13 @@ class TestController extends Controller
     {
         $post = Comment::findOrFail($id);
 
-        // dump(Gate::check('update-post', $post));
+        // if (Gate::denies('update', $post)) {
+        //     dd(403);
+        // }
 
-        if (Gate::denies('update', $post)) {
-            echo 403;
-        }
+        $this->authorize('update', $post);
+
+        dump('success');
 
     }
 }
