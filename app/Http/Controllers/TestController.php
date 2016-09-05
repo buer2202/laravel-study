@@ -49,9 +49,9 @@ class TestController extends Controller
     {
         $post = Comment::findOrFail($id);
 
-        if (Gate::denies('update', $post)) {
-            dd(403);
-        }
+        // if (Gate::denies('update', $post)) {
+        //     dd(403);
+        // }
 
         // $this->authorize('update', $post);
 
