@@ -47,15 +47,7 @@ class TestController extends Controller
 
     public function index($id = 1)
     {
-        $post = Comment::findOrFail($id);
-
-        if (Gate::denies('update', $post)) {
-            dd(403);
-        }
-
-        // $this->authorize('update', $post);
-
-        dump('success', 1, 2, 3);
+        Log::alert('圣诞节福利及开房大厦', ['a' => 'b', 'c' => 'd'], 'afsdfasdfad', ['e' => 'f']);
 
     }
 }
