@@ -1,47 +1,19 @@
 <?php
-set_exception_handler('exception_handler');
-
-class MyException1 extends Exception
+class User
 {
-    public function __construct($message = 'My Own Exception1')
+    public function index()
     {
-        parent::__construct($message);
+        echo 'user.index';
     }
 }
 
-class MyException2 extends Exception
+class Vip
 {
-    public function __construct($message = 'My Own Exception2')
-    {
-        parent::__construct($message);
-    }
+
 }
 
-function foo()
-{
-    try {
-        throw new MyException1;
-    } catch (MyException2 $e) {
-        echo $e->getMessage();
-    } catch (MyException1 $e) {
-        echo $e->getMessage();
-    }
-}
+$user = new Vip;
 
-function bar()
-{
-    try {
-        foo();
-    } catch (MyException1 $e) {
-        echo $e->getMessage();
-    }
-}
+// var_dump($user instanceof User);
 
-
-foo();
-
-function exception_handler($exception) {
-  echo "Uncaught exception!!!!!!!!!!: " , $exception->getMessage(), "\n";
-}
-
-echo 12343214123412344231423112434123;
+var_dump(is_subclass_of($user, 'Vip'));

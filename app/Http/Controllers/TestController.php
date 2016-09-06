@@ -55,7 +55,7 @@ class TestController extends Controller
 
         // $this->authorize('update', $post);
 
-        dump('success');
+        dump('success', 1, 2, 3);
 
     }
 }
