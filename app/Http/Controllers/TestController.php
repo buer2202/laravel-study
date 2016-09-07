@@ -37,6 +37,7 @@ use Auth;
 
 use Gate;
 
+use Mail;
 
 class TestController extends Controller
 {
@@ -47,7 +48,14 @@ class TestController extends Controller
 
     public function index($id = 1)
     {
-        Log::alert('圣诞节福利及开房大厦', ['a' => 'b', 'c' => 'd'], 'afsdfasdfad', ['e' => 'f']);
+        $user = User::findOrFail($id);
+        // dd($user);
 
+        Mail::send('welcome', ['user' => $user], function ($m) use ($user) {
+            $m->from('buer2202@163.com', 'Buer');
+            $m->to($user->email, $user->name)->subject('Your Reminder!');
+        });
+
+        return view('welcome');
     }
 }
