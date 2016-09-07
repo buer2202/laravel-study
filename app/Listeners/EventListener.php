@@ -6,9 +6,8 @@ use App\Events\SomeEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EventListener implements ShouldQueue
+class EventListener
 {
-    use InteractsWithQueue;
     /**
      * Create the event listener.
      *
@@ -27,12 +26,7 @@ class EventListener implements ShouldQueue
      */
     public function handle(SomeEvent $event)
     {
-        // if (true) {
-        //     $this->release(10);
-            echo 1234;
-
-        // }
-
-        return false;
+        dump('EventListener');
+        // return false;
     }
 }

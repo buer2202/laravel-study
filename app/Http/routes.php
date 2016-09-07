@@ -21,7 +21,7 @@ Route::get('/scanlogin', 'ScanLoginController@index');
 Route::get('/scanlogin/login', 'ScanLoginController@login')->name('login');
 Route::get('/scanlogin/confirm', 'ScanLoginController@confirm')->name('confirm');
 
-Route::get('/test/{aaa?}', 'TestController@index')->name('aljkdlkjsadfdsljk');
+Route::get('/test/{user?}', 'TestController@index')->name('aljkdlkjsadfdsljk');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('index', 'TestController@index')->name('db');

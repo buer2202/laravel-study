@@ -24,8 +24,9 @@ class TestListener
      * @param  SomeEvent  $event
      * @return void
      */
-    public function handle()
+    public function handle(SomeEvent $event)
     {
-        dump('test');
+        dump('TestListener');
+        // return false;
     }
 }

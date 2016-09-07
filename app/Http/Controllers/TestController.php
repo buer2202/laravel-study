@@ -46,16 +46,8 @@ class TestController extends Controller
 
     }
 
-    public function index($id = 1)
+    public function index(User $user)
     {
-        $user = User::findOrFail($id);
-        // dd($user);
-
-        Mail::send('welcome', ['user' => $user], function ($m) use ($user) {
-            $m->from('buer2202@163.com', 'Buer');
-            $m->to($user->email, $user->name)->subject('Your Reminder!');
-        });
-
-        return view('welcome');
+        dd($user);
     }
 }

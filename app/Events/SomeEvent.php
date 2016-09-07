@@ -6,9 +6,7 @@ use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-use App\User;
-
-class SomeEvent extends Event implements ShouldBroadcast
+class SomeEvent extends Event
 {
     use SerializesModels;
 
@@ -17,9 +15,9 @@ class SomeEvent extends Event implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+        //
     }
 
     /**
@@ -29,6 +27,6 @@ class SomeEvent extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['user.'.$this->user->id];
+        return [];
     }
 }
