@@ -46,8 +46,14 @@ class TestController extends Controller
 
     }
 
-    public function index(User $user)
+    public function index(/*App\Libraries\Man $man*/)
     {
-        dd($user);
+        $man = app(App\Libraries\Man::class);
+
+        $a = new \ReflectionClass(App\Libraries\Man::class);
+
+        // dump($a->getConstructor()->getParameters());
+
+        // var_dump($a->getConstructor()->getParameters());
     }
 }
