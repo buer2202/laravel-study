@@ -13,6 +13,14 @@
             </div>
         </div>
     </div>
+
+    @foreach($user as $u)
+    <div>{{ $u->name }}</div>
+    @endforeach
+
+    <div>{{ $page->links() }}</div>
+    <div>{{ $page->count() }}</div>
 </div>
-{{ $user->links() }}
+
+
 @endsection

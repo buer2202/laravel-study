@@ -39,6 +39,8 @@ use Gate;
 
 use Mail;
 
+use Illuminate\Pagination\LengthAwarePaginator;
+
 class TestController extends Controller
 {
     public function __construct()
@@ -46,14 +48,14 @@ class TestController extends Controller
 
     }
 
-    public function index(/*App\Libraries\Man $man*/)
+    public function index()
     {
-        $man = app(App\Libraries\Man::class);
+        $user = User::all();
+        $count = User::count();
+        $page = new LengthAwarePaginator($user, 50, 1);
 
-        $a = new \ReflectionClass(App\Libraries\Man::class);
 
-        // dump($a->getConstructor()->getParameters());
 
-        // var_dump($a->getConstructor()->getParameters());
+        return $page->toJson();
     }
 }
