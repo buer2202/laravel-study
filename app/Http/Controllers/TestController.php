@@ -50,12 +50,6 @@ class TestController extends Controller
 
     public function index()
     {
-        $user = User::all();
-        $count = User::count();
-        $page = new LengthAwarePaginator($user, 50, 1);
-
-
-
-        return $page->toJson();
+        var_dump(PHP_EOL.Inspiring::quote().PHP_EOL);
     }
 }
