@@ -1,28 +1,22 @@
 <?php
-class User
+class DataTest extends PHPUnit_Framework_TestCase
 {
-    public function __construct(Vip $a)
+    /**
+     * @dataProvider additionProvider
+     */
+    public function testAdd($a, $b, $expected)
     {
-        $this->a = $a;
+        $this->assertEquals($expected, $a + $b);
     }
 
-    public function index($abc)
+    public function additionProvider()
     {
-        echo 'user.index';
+        return [
+            [0, 0, 0],
+            [0, 1, 1],
+            [1, 0, 1],
+            [1, 1, 3]
+        ];
     }
 }
-
-class Vip
-{
-
-}
-
-$user = new User(new Vip);
-
-// var_dump($user instanceof User);
-
-$aa = new ReflectionClass('User');
-
-var_dump($aa->getConstructor()->getParameters());
-
-// var_dump(get_class_methods('User'));
+?>

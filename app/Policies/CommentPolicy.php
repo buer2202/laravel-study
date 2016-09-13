@@ -23,7 +23,6 @@ class CommentPolicy
 
     public function update(User $user, Comment $comment)
     {
-        dump('comment policy update');
         return $user->id === $comment->user_id;
     }
 }
