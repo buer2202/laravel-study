@@ -6,13 +6,17 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function testIndex()
     {
-        $this->assertTrue(true);
+        $this->call('GET', '/');
+        $this->assertResponseOk();
+        $this->assertViewHas('articles');
+        $this->assertViewHas('tags');
+    }
+
+    public function testNotFound()
+    {
+        $this->call('GET', 'test');
+        $this->assertResponseStatus(404);
     }
 }
